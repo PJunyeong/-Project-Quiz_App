@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".FragmentType">
+
+    <Button
+        android:id="@+id/type_1_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F08080"
+        android:gravity="center"
+        android:text="유형 1번"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        >
+    </Button>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/type_2_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F08080"
+        android:gravity="center"
+        android:text="유형 2번"
+        android:textSize="18sp"
+        android:textColor="@android:color/white">
+    </Button>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/type_3_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F08080"
+        android:gravity="center"
+        android:text="유형 3회"
+        android:textSize="18sp"
+        android:textColor="@android:color/white">
+    </Button>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/type_4_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F08080"
+        android:gravity="center"
+        android:text="유형 4회"
+        android:textSize="18sp"
+        android:textColor="@android:color/white">
+    </Button>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/type_5_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F08080"
+        android:gravity="center"
+        android:text="유형 5회"
+        android:textSize="18sp"
+        android:textColor="@android:color/white">
+    </Button>
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/type_6_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F08080"
+        android:gravity="center"
+        android:text="유형 6회"
+        android:textSize="18sp"
+        android:textColor="@android:color/white">
+    </Button>
+
+</LinearLayout>
