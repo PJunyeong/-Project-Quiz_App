@@ -17,9 +17,5 @@ class TestActivity : AppCompatActivity() {
         after_login_viewpager.adapter = adapter
         after_login_tablayout.setupWithViewPager(after_login_viewpager)
 
-
-
-
-
     }
 }

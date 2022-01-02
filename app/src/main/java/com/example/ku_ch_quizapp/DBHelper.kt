@@ -3,9 +3,13 @@ package com.example.ku_ch_quizapp
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.os.Build
 import android.util.Log
+import androidx.annotation.RequiresApi
 import java.io.File
 import java.io.FileOutputStream
+import java.time.LocalDateTime
+import java.time.LocalTime
 
 // Replace this string with your .sql/.db file name
 const val dbName = "KU_CH_QuizApp.db"
@@ -78,7 +82,7 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
         TODO("Not yet implemented")
     }
 
-    fun get_question1(test_num:Int, type:Int, rand:Boolean): MutableList<question1>{
+    fun get_question1(test_num:Int, type:Int, rand:Boolean): MutableList<question>{
         openDatabase()
 
         var query:String?
@@ -89,7 +93,7 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
 
         val cursor = dataBase?.rawQuery(query,null)
         cursor?.moveToFirst()
-        val list = mutableListOf<question1>()
+        val list = mutableListOf<question>()
         do {
             val test_num = cursor?.getInt(0)
             val number = cursor?.getInt(1)
@@ -105,15 +109,16 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
             val choice3_detail = cursor?.getString(11)
             val choice4 = cursor?.getString(12)
             val choice4_detail = cursor?.getString(13)
-            list.add(question1(test_num, number, type, question, question_detail, answer, choice1, choice1_detail, choice2, choice2_detail,
-                choice3, choice3_detail, choice4, choice4_detail))
+            val order = 0
+            list.add(question(test_num, number, type, question, question_detail, answer, choice1, choice1_detail, choice2, choice2_detail,
+                choice3, choice3_detail, choice4, choice4_detail, order))
         } while (cursor?.moveToNext() == true)
         cursor?.close()
         close()
         return list
     }
 
-    fun get_question2(test_num:Int, rand:Boolean): MutableList<question2>{
+    fun get_question2(test_num:Int, rand:Boolean): MutableList<question>{
         openDatabase()
         var query:String?
         if (rand==true) {
@@ -123,7 +128,7 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
         }
         val cursor = dataBase?.rawQuery(query,null)
         cursor?.moveToFirst()
-        val list = mutableListOf<question2>()
+        val list = mutableListOf<question>()
         do {
             val test_num = cursor?.getInt(0)
             val type = cursor?.getInt(1)
@@ -140,20 +145,73 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
             val choice3_detail = cursor?.getString(12)
             val choice4 = cursor?.getString(13)
             val choice4_detail = cursor?.getString(14)
-            list.add(question2(test_num, type, order, number, question, question_detail, answer, choice1, choice1_detail, choice2, choice2_detail,
-                choice3, choice3_detail, choice4, choice4_detail))
+            list.add(question(test_num, number, type, question, question_detail, answer, choice1, choice1_detail, choice2, choice2_detail,
+                choice3, choice3_detail, choice4, choice4_detail, order))
         } while (cursor?.moveToNext() == true)
         cursor?.close()
         close()
         return list
     }
 
+    fun insert_score(test_num:Int, type_num:Int, score:Int) {
+        openDatabase()
+        var query:String = "INSERT INTO score(test_num, type_num, score) VALUES (${test_num}, ${type_num}, ${score});"
+        dataBase?.execSQL(query)
+        Log.d("score", "점수 입력 완료")
+        close()
+    }
+
+    fun insert_review(type_num:Int, test_num:Int, number:Int, wrong_answer:Int){
+        openDatabase()
+        if (type_num < 6) {
+            dataBase?.execSQL("INSERT INTO review1(test_num, number, wrong_answer) VALUES (${test_num}, ${number}, ${wrong_answer});")
+        } else {
+            dataBase?.execSQL("INSERT INTO review2(test_num, number, wrong_answer) VALUES (${test_num}, ${number}, ${wrong_answer});")
+        }
+        Log.d("review", "오답 노트 입력 완료")
+        close()
+    }
+
+    fun get_review():MutableList<review>{
+        openDatabase()
+        var query:String?
+        query = "SELECT * FROM review1, review2 ORDER BY review_cnt;"
+        val cursor = dataBase?.rawQuery(query,null)
+        cursor?.moveToFirst()
+        val list = mutableListOf<review>()
+        do {
+            val review_cnt = cursor?.getInt(0)
+            val test_num = cursor?.getInt(1)
+            val number = cursor?.getInt(2)
+            val wrong_answer = cursor?.getInt(3)
+            list.add(review(review_cnt, test_num, number, wrong_answer))
+        } while (cursor?.moveToNext() == true)
+        cursor?.close()
+        close()
+        return list
+    }
+
+    fun get_score():MutableList<score>{
+        openDatabase()
+        var query:String?
+        query = "SELECT * FROM score ORDER BY score_cnt;"
+        val cursor = dataBase?.rawQuery(query,null)
+        cursor?.moveToFirst()
+        val list = mutableListOf<score>()
+        do {
+            val test_num = cursor?.getInt(0)
+            val type_num = cursor?.getInt(1)
+            val score = cursor?.getInt(2)
+            val score_cnt = cursor?.getInt(3)
+            list.add(score(test_num, type_num, score, score_cnt))
+        } while (cursor?.moveToNext() == true)
+        cursor?.close()
+        close()
+        return list
+    }
 }
 
-data class question1(var test_num: Int?, var number: Int?, var type:Int?, var question: String?, var question_detail:String?, var answer:Int?, var choice1:String?, var choice1_detail:String?,
-                     var choice2:String?, var choice2_detail:String?, var choice3:String?, var choice3_detail:String?, var choice4:String?, var choice4_detail:String?)
-data class question2(var test_num: Int?, var type: Int?, var order:Int?, var number:Int?, var question: String?,
-                       var question_detail: String?, var answer: Int?, var choice1: String?, var choice1_detail: String?, var choice2: String?,
-                       var choice2_detail: String?, var choice3: String?, var choice3_detail: String?, var choice4: String?, var choice4_detail: String?)
-data class review(var date: String?, var test_num: Int?, var number: Int?, var wrong_answer: Int?)
-data class score(var test_num: Int?, var type_num:Int?, var score:Int?, var date:String?)
+data class question(var test_num: Int?, var number: Int?, var type:Int?, var question: String?, var question_detail:String?, var answer:Int?, var choice1:String?, var choice1_detail:String?,
+                     var choice2:String?, var choice2_detail:String?, var choice3:String?, var choice3_detail:String?, var choice4:String?, var choice4_detail:String?, var order:Int?)
+data class review(var review_cnt:Int?, var test_num:Int?, var number:Int?, var wrong_answer:Int?)
+data class score(var test_num: Int?, var type_num:Int?, var score:Int?, var score_cnt:Int?)

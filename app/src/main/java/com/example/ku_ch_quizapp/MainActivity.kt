@@ -1,10 +1,12 @@
 package com.example.ku_ch_quizapp
 
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,14 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val db_helper = DBHelper(this)
-        val questions = db_helper.get_question2(-1, true)
-        for (question in questions){
-            Log.d("question", "${question}")
-        }
-
         name_btn.setOnClickListener {
             val nickname = nickname_input.getText()
-
             if (nickname.isNullOrEmpty()) {
             Toast.makeText(applicationContext, "닉네임을 입력하세요!", Toast.LENGTH_LONG).show()
             } else {
