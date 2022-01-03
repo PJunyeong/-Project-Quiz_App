@@ -3,12 +3,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentInfo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="THIS IS INFO" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/background_light"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="닉네임을 변경하세요"
+                android:textColor="#7A8089"
+                android:textSize="16sp"
+                android:textStyle="bold">
+            </TextView>
+
+        </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nickname_hint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="변경할 닉네임을 입력하세요">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nickname_change_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="졸업하는 아기호랑이"
+                        android:gravity="center"
+                        android:textColor="@android:color/holo_red_light" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageButton
+                android:id="@+id/nickname_change_btn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/tiger_icon1"></ImageButton>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
 
 </FrameLayout>

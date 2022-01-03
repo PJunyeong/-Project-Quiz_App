@@ -1,10 +1,16 @@
 package com.example.ku_ch_quizapp
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.fragment_info.*
+import kotlinx.android.synthetic.main.fragment_test.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +42,30 @@ class FragmentInfo : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_info, container, false)
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val sharedPreference = this.activity?.getSharedPreferences("tag", 0)
+        val cur_name: String? = sharedPreference?.getString("nickname", "")
+        nickname_change_input.setText(cur_name)
+        nickname_change_btn.setOnClickListener {
+            val new_name = nickname_change_input.getText().toString()
+            if (new_name == "") {
+                Toast.makeText(this.activity, "닉네임을 입력해주세요.", Toast.LENGTH_SHORT).show()
+            } else {
+                val editor = sharedPreference?.edit()
+                editor?.putString("nickname", new_name)
+                editor?.apply()
+                Log.d("shared", "shared preference saved")
+                Toast.makeText(this.activity, "닉네임이 ${new_name}으로 변경되었습니다", Toast.LENGTH_SHORT).show()
+                this.activity?.after_login_hello?.text = "${new_name}"
+            }
+        }
+
+    }
+
+
+
 
     companion object {
         /**

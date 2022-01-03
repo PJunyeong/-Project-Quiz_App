@@ -11,6 +11,10 @@ class TestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
+        val sharedPreference = getSharedPreferences("tag", 0)
+        val name = sharedPreference.getString("nickname", "")
+        after_login_hello.text = "${name}"
+
         val fragmentList = listOf(FragmentType(), FragmentTest(), FragmentReview(), FragmentInfo())
         val adapter = FragmentAdapter(supportFragmentManager, 1)
         adapter.fragmentList = fragmentList

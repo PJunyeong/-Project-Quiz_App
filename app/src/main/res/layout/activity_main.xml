@@ -18,7 +18,9 @@
         android:text="@string/ku_ch_quizapp"
         android:textColor="@android:color/white"
         android:textSize="25sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+
+        />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -35,17 +37,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="졸업 한자 기출 문제"
+                android:layout_marginLeft="30dp"
                 android:textColor="@color/design_default_color_error"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/tiger_icon1"></ImageView>
+            </LinearLayout>
+
             <TextView
+                android:id="@+id/nickname_sub"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -55,6 +70,7 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nickname_hint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="닉네임을 입력하세요">
