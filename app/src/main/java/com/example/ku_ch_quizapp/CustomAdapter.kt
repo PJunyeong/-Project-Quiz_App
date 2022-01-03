@@ -6,9 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_question.view.*
 import kotlinx.android.synthetic.main.item_question.view.*
+import kotlin.coroutines.coroutineContext
+import android.graphics.drawable.Drawable
+
+
+
 
 class CustomAdapter: RecyclerView.Adapter<Holder>() {
     var listData = mutableListOf<question>()
@@ -34,8 +41,24 @@ class CustomAdapter: RecyclerView.Adapter<Holder>() {
         }
         }
 
+        holder.itemView.question_toggle.setOnClickListener{
+            if (holder.itemView.question_box.visibility == View.GONE){
+                Log.d("toggle plus", "지문 박스 확인")
+                holder.itemView.question_box.visibility = View.VISIBLE
+                holder.itemView.question_toggle.setBackgroundResource(R.drawable.circle_minus)
+            } else {
+                Log.d("toggle minus", "지문 박스 줄이기")
+                holder.itemView.question_box.visibility = View.GONE
+                holder.itemView.question_toggle.setBackgroundResource(R.drawable.circle_plus)
+            }
+            notifyDataSetChanged()
+        }
+
+
         val layoutParams = holder.itemView.layoutParams
-        layoutParams.height = 700
+        layoutParams.height = 1100
+
+
         holder.itemView.requestLayout()
     }
 
@@ -67,6 +90,15 @@ class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
         itemView.question_choice2.text = "2번. ${question.choice2}"
         itemView.question_choice3.text = "3번. ${question.choice3}"
         itemView.question_choice4.text = "4번. ${question.choice4}"
+
+        // 유형 6인 경우에만 체크 박스 넣는다. 이 상태에서 아직 체크를 하지 않았으므로 box는 gone, 토글 스위치는 visible하게 바꿔준다.
+
+        if (question.type == 6) {
+            itemView.question_toggle.visibility = View.VISIBLE
+            val resID = itemView.context.resources.getIdentifier("box_${question.test_num}_${question.order}", "drawable", itemView.context.packageName)
+            itemView.question_box.setImageResource(resID)
+        }
+
 
         if (question.choice3 == null) {
             Log.d("null!!", "question_choice3 checked")
@@ -169,6 +201,8 @@ class Holder(itemView: View): RecyclerView.ViewHolder(itemView) {
     }
 
 }
+
+
 
 
 
