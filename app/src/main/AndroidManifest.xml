@@ -11,9 +11,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".QuestionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TestActivity"

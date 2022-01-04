@@ -1,6 +1,7 @@
 package com.example.ku_ch_quizapp
 
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Build
@@ -174,11 +175,23 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
 
     fun get_review():MutableList<review>{
         openDatabase()
-        var query:String?
-        query = "SELECT * FROM review1, review2 ORDER BY review_cnt;"
-        val cursor = dataBase?.rawQuery(query,null)
-        cursor?.moveToFirst()
         val list = mutableListOf<review>()
+        var query:String?
+
+        // review가 기록되어 있는지 확인한다
+        query = "SELECT COUNT(*) FROM review1, review2;"
+        var cursor = dataBase?.rawQuery(query, null)
+        cursor?.moveToFirst()
+        if (cursor?.getInt(0) == 0){
+            Log.d("review", "review not yet saved")
+            return list
+        }
+        // review가 기록이 되어 있다면
+
+        query = "SELECT * FROM review1, review2 ORDER BY review_cnt;"
+        cursor = dataBase?.rawQuery(query,null)
+        cursor?.moveToFirst()
+
         do {
             val review_cnt = cursor?.getInt(0)
             val test_num = cursor?.getInt(1)
@@ -191,13 +204,23 @@ class DBHelper(private val context: Context) : SQLiteOpenHelper(context, dbName,
         return list
     }
 
-    fun get_score():MutableList<score>{
+    fun get_score(): MutableList<score>{
         openDatabase()
-        var query:String?
-        query = "SELECT * FROM score ORDER BY score_cnt;"
-        val cursor = dataBase?.rawQuery(query,null)
-        cursor?.moveToFirst()
         val list = mutableListOf<score>()
+        var query:String?
+        // score가 기록되어 있는지 확인한다
+        query = "SELECT COUNT(*) FROM score;"
+        var cursor = dataBase?.rawQuery(query, null)
+        cursor?.moveToFirst()
+        if (cursor?.getInt(0) == 0){
+            Log.d("score", "score not yet saved")
+            return list
+        }
+        // score가 기록이 되어 있다면
+        query = "SELECT * FROM score ORDER BY score_cnt;"
+        cursor = dataBase?.rawQuery(query,null)
+        cursor?.moveToFirst()
+
         do {
             val test_num = cursor?.getInt(0)
             val type_num = cursor?.getInt(1)

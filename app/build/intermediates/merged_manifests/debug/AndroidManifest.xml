@@ -20,10 +20,8 @@
         android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity
             android:name="com.example.ku_ch_quizapp.QuestionActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.ku_ch_quizapp.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.ku_ch_quizapp.TestActivity"
             android:exported="false"

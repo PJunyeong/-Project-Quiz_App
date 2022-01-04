@@ -8,63 +8,111 @@
     android:gravity="center"
     tools:context=".TestActivity">
 
-    <Button
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <ImageButton
         android:id="@+id/test_10_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F08080"
-        android:gravity="center"
-        android:text="기출 10회"
-        android:textSize="18sp"
-        android:textColor="@android:color/white">
-    </Button>
+        android:background="@drawable/exam_icon">
+    </ImageButton>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="10회차 기출"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        ></TextView></LinearLayout>
 
-    <Button
-        android:layout_marginTop="20dp"
-        android:id="@+id/test_20_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F08080"
-        android:gravity="center"
-        android:text="기출 20회"
-        android:textSize="18sp"
-        android:textColor="@android:color/white">
-    </Button>
 
-    <Button
-        android:layout_marginTop="20dp"
-        android:id="@+id/test_30_btn"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F08080"
-        android:gravity="center"
-        android:text="기출 30회"
-        android:textSize="18sp"
-        android:textColor="@android:color/white">
-    </Button>
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/test_20_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/exam_icon">
+        </ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="20회차 기출"
+            android:textSize="20dp"
+            android:textColor="@color/white"
 
-    <Button
-        android:layout_marginTop="20dp"
-        android:id="@+id/test_40_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F08080"
-        android:gravity="center"
-        android:text="기출 40회"
-        android:textSize="18sp"
-        android:textColor="@android:color/white">
-    </Button>
+            android:layout_gravity="center"
+            ></TextView></LinearLayout>
 
-    <Button
-        android:layout_marginTop="20dp"
-        android:id="@+id/test_50_btn"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#F08080"
-        android:gravity="center"
-        android:text="기출 50회"
-        android:textSize="18sp"
-        android:textColor="@android:color/white">
-    </Button>
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/test_30_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/exam_icon">
+        </ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="30회차 기출"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            ></TextView></LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/test_40_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/exam_icon">
+        </ImageButton>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="40회차 기출"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            ></TextView></LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/test_50_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/exam_icon">
+        </ImageButton>
+        <TextView
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="50회차 기출"
+            android:textSize="20dp"
+            android:layout_gravity="center"
+            ></TextView></LinearLayout>
+
 
 </LinearLayout>

@@ -15,8 +15,6 @@ import kotlin.coroutines.coroutineContext
 import android.graphics.drawable.Drawable
 
 
-
-
 class CustomAdapter: RecyclerView.Adapter<Holder>() {
     var listData = mutableListOf<question>()
     var listAnswer = mutableMapOf("get_keys" to 0)
