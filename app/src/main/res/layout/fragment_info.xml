@@ -6,6 +6,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".FragmentInfo">
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,12 +27,7 @@
             android:orientation="vertical"
             >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            >
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,8 +37,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold">
             </TextView>
-
-        </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/nickname_hint"
@@ -66,6 +63,480 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/background_light"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="유형별 점수"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"></TextView>
+                <ImageButton
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/info_type_del_btn"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/delete_icon"></ImageButton>
+                    </FrameLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="1번 유형"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                    <TextView
+                        android:id="@+id/type_1_total"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 #회"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_1_avg"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="평균 #점"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="2번 유형"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_2_total"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 #회"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_2_avg"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="평균 #점"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="3번 유형"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_3_total"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 #회"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_3_avg"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="평균 #점"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="4번 유형"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_4_total"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 #회"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_4_avg"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="평균 #점"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="5번 유형"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_5_total"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 #회"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_5_avg"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="평균 #점"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="6번 유형"
+                        android:layout_marginLeft="20dp"
+                        android:textColor="#7A8089"
+                        android:textSize="16sp"
+                        android:textStyle="bold">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_6_total"
+                        android:layout_marginLeft="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="총 #회"
+                        android:textColor="@color/black">
+                    </TextView>
+                    <TextView
+                        android:id="@+id/type_6_avg"
+                        android:layout_marginLeft="60dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="평균 #점"
+                        android:textColor="@color/black">
+                    </TextView>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/background_light"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="기출별 점수"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold"></TextView>
+                    <ImageButton
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:id="@+id/info_test_del_btn"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/delete_icon"></ImageButton>
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="전 회차 기출"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_total"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 #회"
+                    android:textColor="@color/black">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/test_avg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:layout_marginLeft="50dp"
+                    android:text="평균 #점"
+                    android:textColor="@color/black"></TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="10회차 기출"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_10_total"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 #회"
+                    android:textColor="@color/black">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_10_avg"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 #점"
+                    android:textColor="@color/black">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="20회차 기출"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_20_total"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 #회"
+                    android:textColor="@color/black">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_20_avg"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 #점"
+                    android:textColor="@color/black">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="30회차 기출"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_30_total"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 #회"
+                    android:textColor="@color/black">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_30_avg"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 #점"
+                    android:textColor="@color/black">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="40회차 기출"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_40_total"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 #회"
+                    android:textColor="@color/black">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_40_avg"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 #점"
+                    android:textColor="@color/black">
+                </TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="50회차 기출"
+                    android:layout_marginLeft="20dp"
+                    android:textColor="#7A8089"
+                    android:textSize="16sp"
+                    android:textStyle="bold">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_50_total"
+                    android:layout_marginLeft="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="총 #회"
+                    android:textColor="@color/black">
+                </TextView>
+                <TextView
+                    android:id="@+id/test_50_avg"
+                    android:layout_marginLeft="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="평균 #점"
+                    android:textColor="@color/black">
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
 </FrameLayout>

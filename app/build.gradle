@@ -8,7 +8,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.ku_ch_quizapp"
+        applicationId "com.kuquiz.ku_ch_quizapp"
         minSdk 21
         targetSdk 32
         versionCode 1

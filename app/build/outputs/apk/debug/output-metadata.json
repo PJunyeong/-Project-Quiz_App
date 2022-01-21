@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.ku_ch_quizapp",
+  "applicationId": "com.kuquiz.ku_ch_quizapp",
   "variantName": "debug",
   "elements": [
     {

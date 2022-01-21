@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.ku_ch_quizapp">
+    package="com.kuquiz.ku_ch_quizapp">
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ku_ch_quiz_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ku_ch_quiz_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".QuestionActivity"
+            android:name="com.kuquiz.ku_ch_quizapp.QuestionActivity"
             android:screenOrientation="portrait"
             android:exported="false" />
         <activity
-            android:name=".TestActivity"
+            android:name="com.kuquiz.ku_ch_quizapp.TestActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.kuquiz.ku_ch_quizapp.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize">
